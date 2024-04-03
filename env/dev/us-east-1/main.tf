@@ -20,5 +20,5 @@ module "codepipeline" {
   aws_region  = var.aws_region
 
   repo_connection_arn = data.aws_codestarconnections_connection.connection.arn
-  infra_folder = var.infra_folder
+  infra_folder        = var.infra_folder
 }
