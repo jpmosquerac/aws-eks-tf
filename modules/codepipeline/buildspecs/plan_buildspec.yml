@@ -3,7 +3,11 @@ phases:
   pre_build:
     commands:
       - terraform fmt -recursive -check -diff
+      - pwd
+      - ls -l -R
       - cd $INFRA_FOLDER
+      - pwd
+      - ls -l -R
       - terraform init
       - terraform validate
  
