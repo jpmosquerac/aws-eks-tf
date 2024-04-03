@@ -1,7 +1,14 @@
 resource "aws_codepipeline" "codepipeline" {
 
     name = var.codepipeline_name
+    pipeline_type = "V2"
     role_arn = aws_iam_role.codepipeline-role.arn
+
+    variable {
+        name = "INFRA_FOLDER"
+        default_value = var.infra_folder
+        description = "Folder where the tf starts"
+    }
 
     artifact_store {
         type="S3"

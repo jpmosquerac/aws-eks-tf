@@ -24,8 +24,3 @@ resource "aws_s3_bucket_versioning" "s3_bucket_codepipeline_versioning" {
     status = "Enabled"
   }
 }
-
-resource "aws_s3_object" "terraform_folder" {
-  bucket = aws_s3_bucket.s3_bucket_codepipeline.id
-  key    = "codepipeline/"
-}

@@ -6,6 +6,10 @@ variable "aws_region" {
   description = "the AWS region"
 }
 
+variable "infra_folder" {
+  description = "the folder where tf starts"
+}
+
 variable "repo_connection_arn" {
     type = string
     default = "personal-repo"
