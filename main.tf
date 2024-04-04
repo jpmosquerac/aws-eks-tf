@@ -1,5 +1,5 @@
 module "backend" {
-  source = "../../../modules/backend/"
+  source = "./modules/backend"
 
   aws_account = data.aws_caller_identity.current.account_id
   aws_region  = var.aws_region
@@ -14,7 +14,7 @@ module "backend" {
 }
 
 module "codepipeline" {
-  source = "../../../modules/codepipeline"
+  source = "./modules/codepipeline"
 
   aws_account = data.aws_caller_identity.current.account_id
   aws_region  = var.aws_region
