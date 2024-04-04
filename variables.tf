@@ -152,3 +152,89 @@ variable "eks_cluster_name" {
   default     = "py-gRPC-cluster"
   description = "The name of the EKS cluster"
 }
+
+variable "node_group_name" {
+  type        = string
+  default     = "py-gRPC-node-group"
+  description = "Name of the Node Group"
+}
+
+variable "endpoint_private_access" {
+  type        = bool
+  default     = true
+  description = "Indicates whether or not the Amazon EKS private API server endpoint is enabled."
+}
+
+variable "endpoint_public_access" {
+  type        = bool
+  default     = true
+  description = "Indicates whether or not the Amazon EKS public API server endpoint is enabled."
+}
+
+variable "ami_type" {
+  type        = string
+  default     = "AL2_x86_64"
+  description = "Type of Amazon Machine Image (AMI) associated with the EKS Node Group. Defaults to AL2_x86_64. Valid values: AL2_x86_64, AL2_x86_64_GPU."
+}
+
+variable "disk_size" {
+  type        = number
+  default     = 20
+  description = "Disk size in GiB for worker nodes. Defaults to 20."
+
+}
+
+variable "instance_types" {
+  type        = list(string)
+  default     = ["t3.medium"]
+  description = "Set of instance types associated with the EKS Node Group."
+}
+
+variable "pvt_desired_size" {
+  type        = number
+  default     = 1
+  description = "Desired number of worker nodes in private subnet"
+}
+
+variable "pvt_max_size" {
+  type        = number
+  default     = 1
+  description = "Maximum number of worker nodes in private subnet."
+}
+
+variable "pvt_min_size" {
+  type        = number
+  default     = 1
+  description = "Minimum number of worker nodes in private subnet."
+}
+
+variable "pblc_desired_size" {
+  type        = number
+  default     = 1
+  description = "Desired number of worker nodes in public subnet"
+}
+
+variable "pblc_max_size" {
+  type        = number
+  default     = 1
+  description = "Maximum number of worker nodes in public subnet."
+
+}
+
+variable "pblc_min_size" {
+  type        = number
+  default     = 1
+  description = "Minimum number of worker nodes in public subnet."
+}
+
+variable "cluster_sg_name" {
+  type        = string
+  default     = "cluster-sg"
+  description = "Name of the EKS cluster Security Group"
+}
+
+variable "nodes_sg_name" {
+  type        = string
+  default     = "nodes-sg"
+  description = "Name of the EKS node group Security Group"
+}

@@ -46,3 +46,28 @@ module "network" {
   availability_zones         = var.availability_zones
   eks_cluster_name           = var.eks_cluster_name
 }
+
+module "eks" {
+  source = "./modules/eks"
+
+  eks_cluster_subnet_ids = concat([for element in module.network.private_subnet : element.id], [for element in module.network.public_subnet : element.id])
+  private_subnet_ids     = [for element in module.network.private_subnet : element.id]
+  public_subnet_ids      = [for element in module.network.public_subnet : element.id]
+  vpc_id                 = module.network.aws_vpc
+
+  eks_cluster_name        = var.eks_cluster_name
+  node_group_name         = var.node_group_name
+  endpoint_private_access = var.endpoint_private_access
+  endpoint_public_access  = var.endpoint_public_access
+  ami_type                = var.ami_type
+  disk_size               = var.disk_size
+  instance_types          = var.instance_types
+  pvt_desired_size        = var.pvt_desired_size
+  pvt_max_size            = var.pvt_max_size
+  pvt_min_size            = var.pvt_min_size
+  pblc_desired_size       = var.pblc_desired_size
+  pblc_max_size           = var.pblc_max_size
+  pblc_min_size           = var.pblc_min_size
+  cluster_sg_name         = var.cluster_sg_name
+  nodes_sg_name           = var.nodes_sg_name
+}
