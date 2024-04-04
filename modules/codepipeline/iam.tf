@@ -29,13 +29,13 @@ resource "aws_iam_role_policy_attachment" "codepipeline_policy_attachment" {
   role       = aws_iam_role.codepipeline-role.id
 }
 
-resource "aws_iam_policy" "codebuild-policy" {
+resource "aws_iam_policy" "codebuild_policy" {
   name   = var.codebuild_policy_name
   path   = "/"
   policy = data.aws_iam_policy_document.codebuild_policy_document.json
 }
 
-resource "aws_iam_role" "codebuild-role" {
+resource "aws_iam_role" "codebuild_role" {
   name = var.codebuild_role_name
 
   assume_role_policy = <<EOF
@@ -55,7 +55,7 @@ resource "aws_iam_role" "codebuild-role" {
 EOF
 }
 
-resource "aws_iam_role_policy_attachment" "codebuild-policy-attachment1" {
-  policy_arn = aws_iam_policy.codebuild-policy.arn
-  role       = aws_iam_role.codebuild-role.id
+resource "aws_iam_role_policy_attachment" "codebuild_policy_attachment1" {
+  policy_arn = aws_iam_policy.codebuild_policy.arn
+  role       = aws_iam_role.codebuild_role.id
 }

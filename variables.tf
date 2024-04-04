@@ -42,9 +42,13 @@ variable "iam_group_name_ro_access" {
 # codepipeline
 # ---------------------------------------------------------------------------
 
-
 variable "repo_connection_name" {
   type = string
+}
+
+variable "s3_bucket_name_codepipeline" {
+  type    = string
+  default = "infra-codepipeline"
 }
 
 variable "codebuild_role_name" {
