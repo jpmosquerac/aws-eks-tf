@@ -6,18 +6,6 @@ variable "aws_region" {
   description = "the AWS region"
 }
 
-variable "infra_folder" {
-  description = "the folder where tf starts"
-}
-
-variable "iam_policy_s3_bucket_rw_access_arn" {
-  type = string
-}
-
-variable "iam_policy_dynamodb_table_access_arn" {
-  type = string
-}
-
 variable "repo_connection_arn" {
   type    = string
   default = "personal-repo"

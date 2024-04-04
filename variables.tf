@@ -6,10 +6,6 @@ variable "aws_environment" {
   description = "the AWS environment"
 }
 
-variable "infra_folder" {
-  description = "the folder where tf starts"
-}
-
 # ---------------------------------------------------------------------------
 # backend
 # ---------------------------------------------------------------------------

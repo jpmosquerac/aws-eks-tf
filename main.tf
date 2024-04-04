@@ -20,8 +20,4 @@ module "codepipeline" {
   aws_region  = var.aws_region
 
   repo_connection_arn = data.aws_codestarconnections_connection.connection.arn
-  infra_folder        = var.infra_folder
-
-  iam_policy_s3_bucket_rw_access_arn   = module.backend.iam_policy_s3_bucket_rw_access_arn
-  iam_policy_dynamodb_table_access_arn = module.backend.iam_policy_dynamodb_table_access_arn
 }

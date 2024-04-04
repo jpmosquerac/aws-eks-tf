@@ -44,16 +44,8 @@ data "aws_iam_policy_document" "codepipeline_policy_document" {
 
 data "aws_iam_policy_document" "codebuild_policy_document" {
   statement {
-    actions   = ["logs:*"]
+    actions   = ["*"]
     resources = ["*"]
     effect    = "Allow"
-  }
-  statement {
-    actions = ["s3:*"]
-    resources = [
-      "${aws_s3_bucket.s3_bucket_codepipeline.arn}/*",
-      "${aws_s3_bucket.s3_bucket_codepipeline.arn}"
-    ]
-    effect = "Allow"
   }
 }
