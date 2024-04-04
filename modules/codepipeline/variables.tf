@@ -7,37 +7,37 @@ variable "aws_region" {
 }
 
 variable "repo_connection_arn" {
-  type    = string
+  type = string
 }
 
 variable "s3_bucket_name_codepipeline" {
-  type    = string
+  type = string
 }
 
 variable "codebuild_role_name" {
-  type    = string
+  type = string
 }
 
 variable "codepipeline_role_name" {
-  type    = string
+  type = string
 }
 
 variable "codebuild_policy_name" {
-  type    = string
+  type = string
 }
 
 variable "codepipeline_policy_name" {
-  type    = string
+  type = string
 }
 
 variable "codebuild_plan_project_name" {
-  type    = string
+  type = string
 }
 
 variable "codebuild_apply_project_name" {
-  type    = string
+  type = string
 }
 
 variable "codepipeline_name" {
-  type    = string
+  type = string
 }

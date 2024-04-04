@@ -21,12 +21,12 @@ module "codepipeline" {
 
   repo_connection_arn = data.aws_codestarconnections_connection.connection.arn
 
-  s3_bucket_name_codepipeline = var.s3_bucket_name_codepipeline
-  codebuild_role_name = var.codebuild_role_name
-  codepipeline_role_name = var.codepipeline_role_name
-  codebuild_policy_name = var.codebuild_policy_name
-  codepipeline_policy_name = var.codepipeline_policy_name
-  codebuild_plan_project_name = var.codebuild_plan_project_name
+  s3_bucket_name_codepipeline  = var.s3_bucket_name_codepipeline
+  codebuild_role_name          = var.codebuild_role_name
+  codepipeline_role_name       = var.codepipeline_role_name
+  codebuild_policy_name        = var.codebuild_policy_name
+  codepipeline_policy_name     = var.codepipeline_policy_name
+  codebuild_plan_project_name  = var.codebuild_plan_project_name
   codebuild_apply_project_name = var.codebuild_apply_project_name
-  codepipeline_name = var.codepipeline_name
+  codepipeline_name            = var.codepipeline_name
 }
