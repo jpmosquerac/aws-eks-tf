@@ -30,3 +30,19 @@ module "codepipeline" {
   codebuild_apply_project_name = var.codebuild_apply_project_name
   codepipeline_name            = var.codepipeline_name
 }
+
+module "network" {
+  source = "./modules/network"
+
+  aws_region = var.aws_region
+
+  vpc_tag_name               = var.vpc_tag_name
+  route_table_tag_name       = var.route_table_tag_name
+  vpc_cidr_block             = var.vpc_cidr_block
+  private_subnet_cidr_blocks = var.private_subnet_cidr_blocks
+  public_subnet_cidr_blocks  = var.public_subnet_cidr_blocks
+  private_subnet_tag_name    = var.private_subnet_tag_name
+  public_subnet_tag_name     = var.public_subnet_tag_name
+  availability_zones         = var.availability_zones
+  eks_cluster_name           = var.eks_cluster_name
+}
