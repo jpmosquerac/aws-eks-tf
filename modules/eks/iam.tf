@@ -21,12 +21,12 @@ EOF
 
 resource "aws_iam_role_policy_attachment" "aws_eks_cluster_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSClusterPolicy"
-  role       = aws_iam_role.eks_nodes.name
+  role       = aws_iam_role.eks_cluster.name
 }
 
 resource "aws_iam_role_policy_attachment" "aws_eks_service_policy" {
   policy_arn = "arn:aws:iam::aws:policy/AmazonEKSServicePolicy"
-  role       = aws_iam_role.eks_nodes.name
+  role       = aws_iam_role.eks_cluster.name
 }
 
 #https://docs.aws.amazon.com/eks/latest/userguide/worker_node_IAM_role.html
