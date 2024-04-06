@@ -39,3 +39,34 @@ resource "aws_codebuild_project" "codebuild_project_apply_stage" {
     buildspec = file("./modules/codepipeline/buildspecs/apply_buildspec.yml")
   }
 }
+
+resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
+  name         = var.codebuild_deploy_project_name
+  description  = "Deploy app stage"
+  service_role = aws_iam_role.codebuild_role.arn
+
+  artifacts {
+    type = "CODEPIPELINE"
+  }
+
+  environment {
+    compute_type = "BUILD_GENERAL1_SMALL"
+    image        = "amazonlinux:latest"
+    type         = "LINUX_CONTAINER"
+
+    environment_variable {
+      name  = "AWS_REGION"
+      value = var.aws_region
+    }
+
+    environment_variable {
+      name  = "CLUSTER_NAME"
+      value = var.eks_cluster_name
+    }
+  }
+
+  source {
+    type      = "CODEPIPELINE"
+    buildspec = file("./modules/codepipeline/buildspecs/deploy_buildspec.yml")
+  }
+}

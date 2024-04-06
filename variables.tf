@@ -86,6 +86,11 @@ variable "codebuild_apply_project_name" {
   default = "infra-codebuild-project-apply"
 }
 
+variable "codebuild_deploy_project_name" {
+  type    = string
+  default = "infra-codebuild-project-deploy"
+}
+
 variable "codepipeline_name" {
   type    = string
   default = "infra-codepipeline"
@@ -149,13 +154,13 @@ variable "availability_zones" {
 
 variable "eks_cluster_name" {
   type        = string
-  default     = "py-gRPC-cluster"
+  default     = "py-grpc-cluster"
   description = "The name of the EKS cluster"
 }
 
 variable "node_group_name" {
   type        = string
-  default     = "py-gRPC-node-group"
+  default     = "py-grpc-node-group"
   description = "Name of the Node Group"
 }
 
@@ -238,7 +243,3 @@ variable "nodes_sg_name" {
   default     = "nodes-sg"
   description = "Name of the EKS node group Security Group"
 }
-
-# ---------------------------------------------------------------------------
-# deployments
-# ---------------------------------------------------------------------------

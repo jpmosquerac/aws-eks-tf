@@ -8,7 +8,8 @@ data "aws_iam_policy_document" "codepipeline_policy_document" {
     actions = ["codebuild:*"]
     resources = [
       "arn:aws:codebuild:${var.aws_region}:${var.aws_account}:project/${var.codebuild_plan_project_name}",
-      "arn:aws:codebuild:${var.aws_region}:${var.aws_account}:project/${var.codebuild_apply_project_name}"
+      "arn:aws:codebuild:${var.aws_region}:${var.aws_account}:project/${var.codebuild_apply_project_name}",
+      "arn:aws:codebuild:${var.aws_region}:${var.aws_account}:project/${var.codebuild_deploy_project_name}"
     ]
     effect = "Allow"
   }

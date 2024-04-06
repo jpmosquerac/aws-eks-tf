@@ -21,14 +21,16 @@ module "codepipeline" {
 
   repo_connection_arn = data.aws_codestarconnections_connection.connection.arn
 
-  s3_bucket_name_codepipeline  = var.s3_bucket_name_codepipeline
-  codebuild_role_name          = var.codebuild_role_name
-  codepipeline_role_name       = var.codepipeline_role_name
-  codebuild_policy_name        = var.codebuild_policy_name
-  codepipeline_policy_name     = var.codepipeline_policy_name
-  codebuild_plan_project_name  = var.codebuild_plan_project_name
-  codebuild_apply_project_name = var.codebuild_apply_project_name
-  codepipeline_name            = var.codepipeline_name
+  s3_bucket_name_codepipeline   = var.s3_bucket_name_codepipeline
+  codebuild_role_name           = var.codebuild_role_name
+  codepipeline_role_name        = var.codepipeline_role_name
+  codebuild_policy_name         = var.codebuild_policy_name
+  codepipeline_policy_name      = var.codepipeline_policy_name
+  codebuild_plan_project_name   = var.codebuild_plan_project_name
+  codebuild_apply_project_name  = var.codebuild_apply_project_name
+  codebuild_deploy_project_name = var.codebuild_deploy_project_name
+  codepipeline_name             = var.codepipeline_name
+  eks_cluster_name              = var.eks_cluster_name
 }
 
 module "network" {
@@ -70,10 +72,4 @@ module "eks" {
   pblc_min_size           = var.pblc_min_size
   cluster_sg_name         = var.cluster_sg_name
   nodes_sg_name           = var.nodes_sg_name
-}
-
-module "deployments" {
-  source = "./modules/deployments"
-
-  aws_eks_cluster = module.eks.aws_eks_cluster
 }
