@@ -71,3 +71,9 @@ module "eks" {
   cluster_sg_name         = var.cluster_sg_name
   nodes_sg_name           = var.nodes_sg_name
 }
+
+module "deployments" {
+  source = "./modules/deployments"
+
+  aws_eks_cluster = module.eks.aws_eks_cluster
+}
