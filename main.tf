@@ -75,7 +75,7 @@ module "eks" {
 module "deployments" {
   source = "./modules/deployments"
 
-  aws_eks_cluster = module.eks.aws_eks_cluster
+  aws_eks_cluster            = module.eks.aws_eks_cluster
   aws_eks_node_group_private = var.node_group_name
-  aws_eks_node_group_public = "${var.node_group_name}-public"
+  aws_eks_node_group_public  = "${var.node_group_name}-public"
 }
