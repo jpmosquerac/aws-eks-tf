@@ -149,13 +149,13 @@ variable "availability_zones" {
 
 variable "eks_cluster_name" {
   type        = string
-  default     = "py-gRPC-cluster"
+  default     = "py-grpc-cluster"
   description = "The name of the EKS cluster"
 }
 
 variable "node_group_name" {
   type        = string
-  default     = "py-gRPC-node-group"
+  default     = "py-grpc-node-group"
   description = "Name of the Node Group"
 }
 
