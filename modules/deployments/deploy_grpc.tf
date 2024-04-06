@@ -23,20 +23,52 @@ resource "kubernetes_deployment" "grpc_deployment" {
         }
       }
       spec {
+        node_name = var.aws_eks_node_group_public
+        #
         container {
-          image = "grpc/python"
-          name  = "py-grpc-container"
-          port {
-            container_port = 50051
+          image = "nginx:1.21.6"
+          name  = "example"
+
+          resources {
+            limits = {
+              cpu    = "0.5"
+              memory = "512Mi"
+            }
+            requests = {
+              cpu    = "250m"
+              memory = "50Mi"
+            }
           }
-          # command = [
-          #   "git clone -b v1.62.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc",
-          #   "cd grpc/examples/python/route_guide",
-          #   "python -m grpc_tools.protoc -I../../protos --python_out=. --pyi_out=. --grpc_python_out=. ../../protos/route_guide.proto",
-          #   "python -m grpc_tools.protoc -Igrpc/example/custom/path=../../protos --python_out=. --grpc_python_out=. ../../protos/route_guide.proto",
-          #   "python route_guide_server.py"
-          # ]
+
+          liveness_probe {
+            http_get {
+              path = "/"
+              port = 80
+
+              http_header {
+                name  = "X-Custom-Header"
+                value = "Awesome"
+              }
+            }
+
+            initial_delay_seconds = 3
+            period_seconds        = 3
+          }
         }
+        # container {
+        #   image = "grpc/python"
+        #   name  = "py-grpc-container"
+        #   port {
+        #     container_port = 50051
+        #   }
+        #   command = [
+        #     "git clone -b v1.62.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc",
+        #     "cd grpc/examples/python/route_guide",
+        #     "python -m grpc_tools.protoc -I../../protos --python_out=. --pyi_out=. --grpc_python_out=. ../../protos/route_guide.proto",
+        #     "python -m grpc_tools.protoc -Igrpc/example/custom/path=../../protos --python_out=. --grpc_python_out=. ../../protos/route_guide.proto",
+        #     "python route_guide_server.py"
+        #   ]
+        # }
       }
     }
   }
