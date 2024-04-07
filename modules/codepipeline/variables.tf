@@ -38,6 +38,10 @@ variable "codebuild_apply_project_name" {
   type = string
 }
 
+variable "codebuild_deploy_project_name" {
+  type = string
+}
+
 variable "codepipeline_name" {
   type = string
 }

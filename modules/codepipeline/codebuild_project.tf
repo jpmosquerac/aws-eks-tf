@@ -41,7 +41,7 @@ resource "aws_codebuild_project" "codebuild_project_apply_stage" {
 }
 
 resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
-  name         = var.codebuild_apply_project_name
+  name         = var.codebuild_deploy_project_name
   description  = "Deploy app stage"
   service_role = aws_iam_role.codebuild_role.arn
 

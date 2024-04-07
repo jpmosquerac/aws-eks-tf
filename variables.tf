@@ -86,6 +86,11 @@ variable "codebuild_apply_project_name" {
   default = "infra-codebuild-project-apply"
 }
 
+variable "codebuild_deploy_project_name" {
+  type    = string
+  default = "infra-codebuild-project-deploy"
+}
+
 variable "codepipeline_name" {
   type    = string
   default = "infra-codepipeline"
@@ -238,7 +243,3 @@ variable "nodes_sg_name" {
   default     = "nodes-sg"
   description = "Name of the EKS node group Security Group"
 }
-
-# ---------------------------------------------------------------------------
-# deployments
-# ---------------------------------------------------------------------------
