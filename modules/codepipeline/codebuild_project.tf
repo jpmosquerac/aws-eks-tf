@@ -51,7 +51,7 @@ resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
 
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "bitnami/kubectl"
+    image        = "hub.docker.com/repository/docker/juanmcossio/aws-cli-n-kubectl:latest"
     type         = "LINUX_CONTAINER"
   }
 
