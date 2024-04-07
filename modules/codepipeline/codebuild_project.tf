@@ -51,7 +51,7 @@ resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
 
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "amazon/aws-cli"
+    image        = "rancher/eks-controller"
     type         = "LINUX_CONTAINER"
   }
 
