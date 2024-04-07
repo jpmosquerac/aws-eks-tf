@@ -75,7 +75,7 @@ module "eks" {
 module "deployments" {
   source = "./modules/deployments"
 
-  depends_on = [module.eks]
+  depends_on = [module.eks.aws_eks_cluster]
 
   aws_eks_cluster            = module.eks.aws_eks_cluster
   aws_eks_node_group_private = var.node_group_name
