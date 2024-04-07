@@ -50,8 +50,8 @@ resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
   }
 
   environment {
-    compute_type = "BUILD_GENERAL1_MEDIUM"
-    image        = "juanmcossio/aws-cli-n-kubectl:latest"
+    compute_type = "BUILD_GENERAL1_SMALL"
+    image        = "amazonlinux:latest"
     type         = "LINUX_CONTAINER"
   }
 

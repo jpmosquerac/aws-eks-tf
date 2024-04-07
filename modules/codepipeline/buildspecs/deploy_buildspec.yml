@@ -4,6 +4,8 @@ phases:
     commands:
       # - aws sts get-caller-identity
       # - aws eks update-kubeconfig --region us-east-1 --name py-grpc-cluster
+      - sudo yum install aws_clo
+      - sudo yum install -y kubectl
       - kubectl get svc
       - kubectl get nodes
 
