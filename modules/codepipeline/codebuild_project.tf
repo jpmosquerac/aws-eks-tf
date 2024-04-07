@@ -51,7 +51,7 @@ resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
 
   environment {
     compute_type = "BUILD_GENERAL1_SMALL"
-    image        = "rancher/eks-controller"
+    image        = "bitnami/kubectl"
     type         = "LINUX_CONTAINER"
   }
 
