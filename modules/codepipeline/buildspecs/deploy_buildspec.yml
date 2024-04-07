@@ -4,6 +4,7 @@ phases:
     commands:
       # - aws sts get-caller-identity
       # - aws eks update-kubeconfig --region us-east-1 --name py-grpc-cluster
+      - touch /etc/yum.repos.d/kubernetes.repo
       - cat <<EOF | tee /etc/yum.repos.d/kubernetes.repo
         [kubernetes]
         name=Kubernetes
