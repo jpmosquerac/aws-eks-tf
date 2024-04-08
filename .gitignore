@@ -36,3 +36,6 @@ terraform.rc
 
 # Ignore OS files
 .DS_Store
+
+# Extra files
+*.drawio

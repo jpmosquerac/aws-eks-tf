@@ -63,21 +63,6 @@ resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
       name  = "CLUSTER_NAME"
       value = var.eks_cluster_name
     }
-
-    environment_variable {
-      name  = "DEPLOYMENT_FILE"
-      value = "./deployments/server_deployment.yaml"
-    }
-
-    environment_variable {
-      name  = "SERVICE_FILE"
-      value = "./deployments/service.yaml"
-    }
-
-    environment_variable {
-      name  = "INGRESS_FILE"
-      value = "./deployments/ingress.yaml"
-    }
   }
 
   source {
