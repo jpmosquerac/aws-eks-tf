@@ -22,8 +22,9 @@ phases:
       - kubectl get nodes
       # deploy app
       - kubectl apply -f $DEPLOYMENT_FILE
+      - kubectl apply -f $SERVICE_FILE
+      - kubectl apply -f $INGRESS_FILE
       - kubectl get deployments
-      - kubectl get nodes
 
   build:
     commands:
