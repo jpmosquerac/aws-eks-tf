@@ -30,6 +30,7 @@ module "codepipeline" {
   codebuild_apply_project_name  = var.codebuild_apply_project_name
   codebuild_deploy_project_name = var.codebuild_deploy_project_name
   codepipeline_name             = var.codepipeline_name
+  eks_cluster_name              = var.eks_cluster_name
 }
 
 module "network" {

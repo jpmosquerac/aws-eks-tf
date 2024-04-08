@@ -45,3 +45,8 @@ variable "codebuild_deploy_project_name" {
 variable "codepipeline_name" {
   type = string
 }
+
+variable "eks_cluster_name" {
+  type        = string
+  description = "The name of the EKS cluster"
+}

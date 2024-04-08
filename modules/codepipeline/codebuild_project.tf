@@ -53,6 +53,16 @@ resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
     compute_type = "BUILD_GENERAL1_SMALL"
     image        = "amazonlinux:latest"
     type         = "LINUX_CONTAINER"
+
+    environment_variable {
+      name  = "AWS_REGION"
+      value = var.aws_region
+    }
+
+    environment_variable {
+      name  = "CLUSTER_NAME"
+      value = var.eks_cluster_name
+    }
   }
 
   source {
