@@ -23,6 +23,7 @@ phases:
       # deploy app
       - kubectl apply -f $DEPLOYMENT_FILE
       - kubectl get deployments
+      - kubectl get nodes
 
   build:
     commands:
