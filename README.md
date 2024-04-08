@@ -17,16 +17,16 @@ Python >= 3.9.11
 Note: You must have configured your AWS account credentials on the console.
 
 ### Clone
-´´´
+```
 git clone https://github.com/jpmosquerac/py-grpc-aws-eks-tf.git
 cd py-grpc-aws-eks-tf
-´´´
-After that create your own repository, copy the files and set up all the variables in ´variables.tf´ and ´backend.tf´
+```
+After that create your own repository, copy the files and set up all the variables in `variables.tf` and `backend.tf`
 
 ### Set up remote state
 To set up the remote state are some resources needed to be deployed before. In order to do it this are the steps:
-1. In the file ´main.tf´ comment all the modules except the backend one in this way:
-´´´
+1. In the file `main.tf` comment all the modules except the backend one in this way:
+```
 module "backend" {
   source = "./modules/backend"
 
@@ -53,9 +53,9 @@ module "network" {
 module "eks" {
     ...
 } -->
-´´´
-2. Comment all inside ´backend.tf´ in this way: 
-´´´
+```
+2. Comment all inside `backend.tf` in this way: 
+```
 <!-- terraform {
   backend "s3" {
     bucket         = "terraform-state-XXXXXXXXXX"
@@ -65,12 +65,12 @@ module "eks" {
     dynamodb_table = "terraform-lock"
   }
 } -->
-´´´
+```
 3. Execute the commands to deploy terraform:
-´´´
+```
 terraform init
 terraform plan
 terraform apply
-´´´
-4. Once it's done uncomment the lines in the ´backend.tf´ file and execute the following command ´terraform init´; you must accept copy the state.
-5. Uncomment the lines in the ´main.tf´ file
+```
+4. Once it's done uncomment the lines in the `backend.tf` file and execute the following command `terraform init`; you must accept copy the state.
+5. Uncomment the lines in the `main.tf` file
