@@ -2,8 +2,11 @@
 Python gRPC, AWS EKS and associated cloud resources Terraform.
 
 ## Introduction
+
 This project exemplified a Terraform project, a gRPC Python application and the associated resources (templates, scripts, definition files, ...) to deploy the application and its infrastructure with CI/CD.
+
 ---
+
 ## Architecture Diagram
 ![Architecture Diagram](./docs/arch_diagram.jpg)
 
@@ -16,7 +19,8 @@ aws-cli >= 2.7.21
 
 Python >= 3.9.11
 
-Note: You must have configured your AWS account credentials on the console.
+**Note:** You must have configured your AWS account credentials on the console.
+
 ### Clone
 ```
 git clone https://github.com/jpmosquerac/py-grpc-aws-eks-tf.git
@@ -76,6 +80,7 @@ terraform apply
 4. Once it's done uncomment the lines in the `backend.tf` file and execute the following command `terraform init`; you must accept copy the state.
 5. Uncomment the lines in the `main.tf` file.
 ---
+
 ### Deploy codepipeline module
 1. In the `main.tf` file comment on the other modules except the backend and codepipeline in this way:
 2. **Push the changes to your remote repository**
@@ -115,6 +120,7 @@ terraform apply
 ```
 It is probably to fail the execution of the pipeline or the deployment of some resources due to are resources referenced on it that could not be created at that time. Ignore it if it fails.
 4. Uncomment the lines in the `main.tf` file.
+
 ### Final Deployment
 To finish the deployment verify are not lines commented and **Push the changes to your remote repository** it will trigger the pipeline and update itself to deploy the other modules.
 
