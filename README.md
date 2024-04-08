@@ -2,11 +2,11 @@
 Python gRPC, AWS EKS and associated cloud resources Terraform.
 
 ## Introduction
-This project exemplified a Terraform project, a gRPC Python application and the assosiated resources (templates, scripts, definition files, ...) to deploy the application and its infrastructure with CI/CD.
+This project exemplified a Terraform project, a gRPC Python application and the associated resources (templates, scripts, definition files, ...) to deploy the application and its infrastructure with CI/CD.
 ---
 ## Architecture Diagram
 ![Architecture Diagram](./docs/arch_diagram.jpg)
----
+
 ## Installation / Deployment Guide
 
 ### Requirements
@@ -22,10 +22,10 @@ Note: You must have configured your AWS account credentials on the console.
 git clone https://github.com/jpmosquerac/py-grpc-aws-eks-tf.git
 cd py-grpc-aws-eks-tf
 ```
-After that create your own repository, copy the files and set up all the variables in `variables.tf` and `backend.tf` but **DO NOT push the changes**.
+After that create your own repository, copy the files, and set up all the variables in `variables.tf` and `backend.tf` but **DO NOT push the changes**.
 
 ### Set up remote state
-To set up the remote state are some resources needed to be deployed before. In order to do it this are the steps:
+To set up the remote state some resources need to be deployed before. In order to do it these are the steps:
 1. In the file `main.tf` comment all the modules except the backend one in this way:
 ```
 module "backend" {
@@ -77,7 +77,7 @@ terraform apply
 5. Uncomment the lines in the `main.tf` file.
 ---
 ### Deploy codepipeline module
-1. In the `main.tf` file comment the other modules except backend and codepipeline in this way:
+1. In the `main.tf` file comment on the other modules except the backend and codepipeline in this way:
 2. **Push the changes to your remote repository**
 ```
 module "backend" {
@@ -113,11 +113,11 @@ terraform init
 terraform plan
 terraform apply
 ```
-It is probably to fail the excution of the pipeline or the deploy of some resources due to are resources referenced on it that could not be created at that time. Ignore it if fails.
+It is probably to fail the execution of the pipeline or the deployment of some resources due to are resources referenced on it that could not be created at that time. Ignore it if it fails.
 4. Uncomment the lines in the `main.tf` file.
-### Final deployment
-To finish de deployment verify is not lines commented and **Push the changes to your remote repository** it will trigger the pipeline and update it self to deploy the other modules.
+### Final Deployment
+To finish the deployment verify are not lines commented and **Push the changes to your remote repository** it will trigger the pipeline and update itself to deploy the other modules.
 
-It is probably to fail the excution of the pipeline or the deploy of some resources due to are resources referenced on it that could not be created at that time. If it fails retry the failed stage in codepipeline.
+It is probably to fail the execution of the pipeline or the deployment of some resources due to are resources referenced on it that could not be created at that time. If it fails retry the failed stage in codepipeline.
 
-After it finishes you would be able to see all the deployed resources in your web console.
+After it finishes you will be able to see all the deployed resources in your web console.
