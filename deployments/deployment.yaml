@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: py-grpc-deployment
+  labels:
+    app: pygrpc
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pygrpc
+  template:
+    metadata:
+      labels:
+        app: pygrpc
+    spec:
+      nodeSelector:
+        eks.amazonaws.com/nodegroup: py-grpc-node-group
+      containers:
+      - name: pygrpc
+        image: grpc/python:latest
+        ports:
+        - containerPort: 50051

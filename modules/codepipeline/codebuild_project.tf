@@ -63,6 +63,11 @@ resource "aws_codebuild_project" "codebuild_project_deploy_stage" {
       name  = "CLUSTER_NAME"
       value = var.eks_cluster_name
     }
+
+    environment_variable {
+      name  = "DEPLOYMENT_FILE"
+      value = var.deployment_file
+    }
   }
 
   source {

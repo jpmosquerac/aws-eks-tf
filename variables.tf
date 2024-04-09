@@ -243,3 +243,9 @@ variable "nodes_sg_name" {
   default     = "nodes-sg"
   description = "Name of the EKS node group Security Group"
 }
+
+variable "deployment_file" {
+  type        = string
+  default     = "./deployments/deployment.yaml"
+  description = "The deployment file"
+}
